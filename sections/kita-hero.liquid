@@ -20,7 +20,7 @@
       <p class="kita-hero__eyebrow">{{ section.settings.eyebrow }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h1 class="kita-hero__heading">{{ section.settings.heading | newline_to_br }}</h1>
+      <h1 class="kita-hero__heading">{{ section.settings.heading | newline_to_br | strip_newlines }}</h1>
     {%- endif -%}
     {%- if section.settings.subtext != blank -%}
       <p class="kita-hero__subtext">{{ section.settings.subtext }}</p>
