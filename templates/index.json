@@ -64,10 +64,26 @@
         "subtext": "北の大地で培った職人の技と、アウトドアへの深い愛情から生まれた道具たち。",
         "color_scheme": "background-1"
       }
+    },
+    "kita_cta_banner_PRQnpr": {
+      "type": "kita-cta-banner",
+      "name": "KITAバナーCTA",
+      "settings": {
+        "eyebrow": "COLLECTION",
+        "heading": "あなたの次の冒険を、\nここから始めよう。",
+        "subtext": "KITA OUTDOORが厳選した道具で、自然と向き合う時間をもっと豊かに。",
+        "button_label": "コレクションをすべて見る",
+        "button_url": "",
+        "bg_color": "#1B4332",
+        "text_color": "#F8F4EF",
+        "btn_color": "#F8F4EF",
+        "btn_text_color": "#1B4332"
+      }
     }
   },
   "order": [
     "kita_hero_VpBpRb",
-    "kita_features_yDLawT"
+    "kita_features_yDLawT",
+    "kita_cta_banner_PRQnpr"
   ]
 }
