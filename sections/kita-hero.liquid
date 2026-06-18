@@ -1,0 +1,177 @@
+<section class="kita-hero" style="
+  background-image: {% if section.settings.bg_image != blank %}url('{{ section.settings.bg_image | image_url: width: 1920 }}'){% else %}linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%){% endif %};
+  min-height: {{ section.settings.min_height }}vh;
+  color: {{ section.settings.text_color }};
+">
+  <div class="kita-hero__overlay" style="background-color: rgba(0,0,0,{{ section.settings.overlay_opacity | divided_by: 100.0 }});"></div>
+  <div class="kita-hero__inner page-width">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="kita-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h1 class="kita-hero__heading">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+    {%- if section.settings.subtext != blank -%}
+      <p class="kita-hero__subtext">{{ section.settings.subtext }}</p>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a
+        href="{{ section.settings.button_url | default: '#' }}"
+        class="kita-hero__btn button"
+      >
+        {{ section.settings.button_label }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+.kita-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.kita-hero__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.kita-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.4rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.kita-hero__eyebrow {
+  font-size: 1.3rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.kita-hero__heading {
+  font-size: clamp(3.6rem, 6vw, 7.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.kita-hero__subtext {
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  line-height: 1.7;
+  opacity: 0.9;
+  max-width: 52rem;
+  margin: 0;
+}
+
+.kita-hero__btn {
+  margin-top: 0.8rem;
+  padding: 1.6rem 4rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 749px) {
+  .kita-hero__inner {
+    align-items: center;
+    text-align: center;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .kita-hero__subtext {
+    max-width: 100%;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "KITAヒーロー",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "背景画像"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "セクションの高さ",
+      "default": 85
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "label": "オーバーレイの暗さ",
+      "default": 35
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "サブタイトル（小文字）",
+      "default": "KITA OUTDOOR"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "メインキャッチコピー",
+      "default": "北の山が、\n道具を鍛える。"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "サブテキスト",
+      "default": "過酷な環境で生まれたギアは、あなたの冒険を支える。\nKITA OUTDOORが届ける、本物の道具。"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "ボタンのテキスト",
+      "default": "コレクションを見る"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "ボタンのリンク先"
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "label": "テキストカラー",
+      "options": [
+        { "value": "#ffffff", "label": "ホワイト" },
+        { "value": "#1A1A1A", "label": "ダーク" }
+      ],
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "KITAヒーロー"
+    }
+  ]
+}
+{% endschema %}
