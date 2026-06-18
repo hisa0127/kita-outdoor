@@ -1,0 +1,72 @@
+/* ============================================
+   KITA OUTDOOR - Custom Brand CSS
+   ブランドカラーでDawnのCSS変数を上書き
+   ============================================ */
+
+/* カスタムブランド変数（kita-セクション用） */
+:root {
+  --kita-green: #1B4332;
+  --kita-green-rgb: 27, 67, 50;
+  --kita-bg: #F8F4EF;
+  --kita-bg-rgb: 248, 244, 239;
+  --kita-gray: #9E9E9E;
+  --kita-gray-rgb: 158, 158, 158;
+  --kita-text: #1A1A1A;
+  --kita-text-rgb: 26, 26, 26;
+}
+
+/* ============================================
+   DawnのカラースキームをKITA OUTDOORに上書き
+   Dawn は RGB形式で変数を定義しているため
+   rgb値（数値のみ）で上書きする
+   ============================================ */
+
+/* scheme-1（メイン） */
+[data-color-scheme="scheme-1"],
+.color-scheme-1 {
+  --color-background: var(--kita-bg-rgb);
+  --color-foreground: var(--kita-text-rgb);
+  --color-button: var(--kita-green-rgb);
+  --color-button-text: 255, 255, 255;
+  --color-link: var(--kita-green-rgb);
+}
+
+/* ボタンの色をブランドカラーに */
+.button,
+.button--primary,
+button[type="submit"] {
+  background-color: var(--kita-green);
+  color: #ffffff;
+  border-color: var(--kita-green);
+}
+
+.button:hover,
+.button--primary:hover {
+  background-color: #143326;
+  border-color: #143326;
+}
+
+/* リンクカラー */
+a {
+  color: var(--kita-green);
+}
+
+/* ヘッダー */
+.header {
+  background-color: var(--kita-bg);
+}
+
+/* ============================================
+   タイポグラフィ（STEP 5で追加）
+   ============================================ */
+
+h1, h2, h3 {
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+body {
+  line-height: 1.8;
+  background-color: var(--kita-bg);
+  color: var(--kita-text);
+}
