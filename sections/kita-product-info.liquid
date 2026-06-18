@@ -1,32 +1,37 @@
+{%- liquid
+  assign brand_comment = product.metafields.custom.brand_comment | default: section.settings.brand_comment
+  assign spec_material  = product.metafields.custom.spec_material  | default: section.settings.spec_material
+  assign spec_weight    = product.metafields.custom.spec_weight    | default: section.settings.spec_weight
+  assign spec_season    = product.metafields.custom.spec_season    | default: section.settings.spec_season
+-%}
+
 <section class="kita-product-info">
   <div class="page-width">
 
-    {%- if section.settings.brand_comment != blank -%}
+    {%- if brand_comment != blank -%}
       <div class="kita-product-info__comment">
-        <p class="kita-product-info__comment-text">{{ section.settings.brand_comment }}</p>
+        <p class="kita-product-info__comment-text">{{ brand_comment }}</p>
       </div>
     {%- endif -%}
 
-    {%- if section.settings.spec_material != blank
-      or section.settings.spec_weight != blank
-      or section.settings.spec_season != blank -%}
+    {%- if spec_material != blank or spec_weight != blank or spec_season != blank -%}
       <div class="kita-product-info__specs">
-        {%- if section.settings.spec_material != blank -%}
+        {%- if spec_material != blank -%}
           <div class="kita-product-info__spec-item">
             <span class="kita-product-info__spec-label">素材</span>
-            <span class="kita-product-info__spec-value">{{ section.settings.spec_material }}</span>
+            <span class="kita-product-info__spec-value">{{ spec_material }}</span>
           </div>
         {%- endif -%}
-        {%- if section.settings.spec_weight != blank -%}
+        {%- if spec_weight != blank -%}
           <div class="kita-product-info__spec-item">
             <span class="kita-product-info__spec-label">重量</span>
-            <span class="kita-product-info__spec-value">{{ section.settings.spec_weight }}</span>
+            <span class="kita-product-info__spec-value">{{ spec_weight }}</span>
           </div>
         {%- endif -%}
-        {%- if section.settings.spec_season != blank -%}
+        {%- if spec_season != blank -%}
           <div class="kita-product-info__spec-item">
             <span class="kita-product-info__spec-label">対応シーズン</span>
-            <span class="kita-product-info__spec-value">{{ section.settings.spec_season }}</span>
+            <span class="kita-product-info__spec-value">{{ spec_season }}</span>
           </div>
         {%- endif -%}
       </div>
@@ -41,7 +46,6 @@
   border-top: 1px solid rgba(var(--kita-green-rgb), 0.15);
 }
 
-/* こだわりコメント */
 .kita-product-info__comment {
   margin-bottom: 4rem;
   padding: 2.4rem 3.2rem;
@@ -57,7 +61,6 @@
   margin: 0;
 }
 
-/* スペック3列 */
 .kita-product-info__specs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -102,7 +105,7 @@
     gap: 1.2rem;
   }
   .kita-product-info__comment {
-    padding: 2rem 2rem;
+    padding: 2rem;
   }
 }
 {% endstylesheet %}
@@ -114,27 +117,31 @@
   "class": "section",
   "settings": [
     {
+      "type": "paragraph",
+      "content": "各項目は商品メタフィールド（custom.brand_comment など）が優先されます。メタフィールド未設定の場合は以下のデフォルト値が表示されます。"
+    },
+    {
       "type": "textarea",
       "id": "brand_comment",
-      "label": "ブランドのこだわりコメント",
-      "default": "北の山岳地帯で実際にフィールドテストを重ね、過酷な環境でも機能することを確認した本物の道具です。職人の手によって丁寧に仕上げられた一着を、あなたの冒険に。"
+      "label": "こだわりコメント（デフォルト）",
+      "default": "北の山岳地帯で実際にフィールドテストを重ね、過酷な環境でも機能することを確認した本物の道具です。"
     },
     {
       "type": "text",
       "id": "spec_material",
-      "label": "素材",
+      "label": "素材（デフォルト）",
       "default": "リサイクルナイロン100%"
     },
     {
       "type": "text",
       "id": "spec_weight",
-      "label": "重量",
+      "label": "重量（デフォルト）",
       "default": "約350g"
     },
     {
       "type": "text",
       "id": "spec_season",
-      "label": "対応シーズン",
+      "label": "対応シーズン（デフォルト）",
       "default": "春・夏・秋"
     }
   ],

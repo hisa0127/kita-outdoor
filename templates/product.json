@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -108,72 +99,9 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "kita_product_info_bFBkTF": {
-      "type": "kita-product-info",
-      "blocks": {
-        "highlight_Cbwc6p": {
-          "type": "highlight",
-          "settings": {
-            "icon": "💧",
-            "title": "耐水圧20,000mm",
-            "description": "本格的な登山にも対応できる高耐水圧設計。突然の豪雨でも快適さを保ちます。"
-          }
-        },
-        "highlight_yiWKhw": {
-          "type": "highlight",
-          "settings": {
-            "icon": "🌬️",
-            "title": "透湿性10,000g",
-            "description": "運動中の汗を素早く外へ逃がす透湿素材を採用。蒸れを防いで快適な着心地を実現。"
-          }
-        },
-        "highlight_hDjCE9": {
-          "type": "highlight",
-          "settings": {
-            "icon": "⚖️",
-            "title": "軽量設計350g",
-            "description": "長距離トレッキングでも負担にならない軽さ。装備の重量を最小限に抑えます。"
-          }
-        },
-        "spec_k3biGw": {
-          "type": "spec",
-          "settings": {
-            "label": "素材",
-            "value": "ナイロン100%（リサイクル素材使用）"
-          }
-        },
-        "spec_9HTW4p": {
-          "type": "spec",
-          "settings": {
-            "label": "重量",
-            "value": "約350g"
-          }
-        },
-        "spec_nP6EhT": {
-          "type": "spec",
-          "settings": {
-            "label": "原産国",
-            "value": "日本"
-          }
-        }
-      },
-      "block_order": [
-        "highlight_Cbwc6p",
-        "highlight_yiWKhw",
-        "highlight_hDjCE9",
-        "spec_k3biGw",
-        "spec_9HTW4p",
-        "spec_nP6EhT"
-      ],
-      "name": "KITA商品詳細情報",
-      "settings": {
-        "heading": "商品の特徴・スペック"
-      }
     }
   },
   "order": [
-    "kita_product_info_bFBkTF",
     "main",
     "kita-product-info",
     "related-products"
