@@ -20,7 +20,7 @@
       <p class="kita-hero__eyebrow">{{ section.settings.eyebrow }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h1 class="kita-hero__heading">{{ section.settings.heading }}</h1>
+      <h1 class="kita-hero__heading">{{ section.settings.heading | newline_to_br }}</h1>
     {%- endif -%}
     {%- if section.settings.subtext != blank -%}
       <p class="kita-hero__subtext">{{ section.settings.subtext }}</p>
@@ -88,7 +88,14 @@
   line-height: 1.2;
   letter-spacing: 0.03em;
   margin: 0;
-  white-space: pre-line;
+}
+
+/* PC: brタグを非表示にして自然な1行表示 */
+.kita-hero__heading br { display: none; }
+
+/* SP: brタグを表示して意図した位置で改行 */
+@media screen and (max-width: 749px) {
+  .kita-hero__heading br { display: inline; }
 }
 
 .kita-hero__subtext {
@@ -183,10 +190,10 @@
       "default": "KITA OUTDOOR"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "heading",
-      "label": "キャッチコピー",
-      "default": "山と森で、自分を更新する"
+      "label": "キャッチコピー（SPで改行したい位置でEnterキーを押す）",
+      "default": "山と森で、\n自分を更新する"
     },
     {
       "type": "textarea",
