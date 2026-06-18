@@ -57,8 +57,42 @@ a {
 }
 
 /* ============================================
+   ヘッダー：スクロール時にstickyスタイル
+   ============================================ */
+
+.shopify-section-header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.shopify-section-header-hidden {
+  box-shadow: none;
+}
+
+.scrolled-past-header ~ * .header,
+sticky-header[data-sticky-type] .header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shopify-section-header-sticky .header {
+  background-color: rgba(248, 244, 239, 0.97);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
    タイポグラフィ（STEP 5で追加）
    ============================================ */
+
+/* フッターキャッチコピー */
+.footer__catchphrase {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--kita-green);
+  margin: 0 0 1.6rem;
+}
 
 h1, h2, h3 {
   letter-spacing: 0.05em;

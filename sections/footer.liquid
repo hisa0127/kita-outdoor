@@ -298,6 +298,9 @@
       </div>
     </div>
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
+      {%- if section.settings.brand_catchphrase != blank -%}
+        <p class="footer__catchphrase">{{ section.settings.brand_catchphrase }}</p>
+      {%- endif -%}
       <div class="footer__copyright caption">
         <small class="copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
@@ -491,6 +494,13 @@
       "default": true,
       "label": "t:sections.footer.settings.show_policy.label",
       "info": "t:sections.footer.settings.show_policy.info"
+    },
+    {
+      "type": "text",
+      "id": "brand_catchphrase",
+      "label": "ブランドキャッチコピー",
+      "default": "北の山が、道具を鍛える。",
+      "info": "コピーライトの上に表示されます"
     },
     {
       "type": "header",
