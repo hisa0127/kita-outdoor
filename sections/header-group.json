@@ -53,73 +53,10 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
-    },
-    "kita_product_info_Piq6d7": {
-      "type": "kita-product-info",
-      "blocks": {
-        "highlight_EUcCAe": {
-          "type": "highlight",
-          "settings": {
-            "icon": "💧",
-            "title": "耐水圧20,000mm",
-            "description": "本格的な登山にも対応できる高耐水圧設計。突然の豪雨でも快適さを保ちます。"
-          }
-        },
-        "highlight_bmAYhX": {
-          "type": "highlight",
-          "settings": {
-            "icon": "🌬️",
-            "title": "透湿性10,000g",
-            "description": "運動中の汗を素早く外へ逃がす透湿素材を採用。蒸れを防いで快適な着心地を実現。"
-          }
-        },
-        "highlight_4qgMLH": {
-          "type": "highlight",
-          "settings": {
-            "icon": "⚖️",
-            "title": "軽量設計350g",
-            "description": "長距離トレッキングでも負担にならない軽さ。装備の重量を最小限に抑えます。"
-          }
-        },
-        "spec_qF4U7g": {
-          "type": "spec",
-          "settings": {
-            "label": "素材",
-            "value": "ナイロン100%（リサイクル素材使用）"
-          }
-        },
-        "spec_wzbAVz": {
-          "type": "spec",
-          "settings": {
-            "label": "重量",
-            "value": "約350g"
-          }
-        },
-        "spec_D4bznY": {
-          "type": "spec",
-          "settings": {
-            "label": "原産国",
-            "value": "日本"
-          }
-        }
-      },
-      "block_order": [
-        "highlight_EUcCAe",
-        "highlight_bmAYhX",
-        "highlight_4qgMLH",
-        "spec_qF4U7g",
-        "spec_wzbAVz",
-        "spec_D4bznY"
-      ],
-      "name": "KITA商品詳細情報",
-      "settings": {
-        "heading": "商品の特徴・スペック"
-      }
     }
   },
   "order": [
     "announcement-bar",
-    "header",
-    "kita_product_info_Piq6d7"
+    "header"
   ]
 }
