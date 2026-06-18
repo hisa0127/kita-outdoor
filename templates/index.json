@@ -24,9 +24,50 @@
         "button_url": "",
         "text_color": "#ffffff"
       }
+    },
+    "kita_features_yDLawT": {
+      "type": "kita-features",
+      "blocks": {
+        "feature_item_jqnAGa": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🏔️",
+            "title": "過酷な環境でテスト済み",
+            "description": "北海道の山岳地帯で実際に使用し、過酷な環境でも機能することを確認。本物のフィールドが品質の証明です。"
+          }
+        },
+        "feature_item_VVG9rD": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🌿",
+            "title": "サステナブルな素材",
+            "description": "リサイクル素材や自然由来の素材を積極的に採用。大自然を愛するからこそ、地球への負荷を最小限に。"
+          }
+        },
+        "feature_item_Fe87VA": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "🛠️",
+            "title": "職人による丁寧な仕上げ",
+            "description": "北の職人が一点一点丁寧に仕上げるクラフトマンシップ。長く使えるものを、誠実に作ることにこだわります。"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_jqnAGa",
+        "feature_item_VVG9rD",
+        "feature_item_Fe87VA"
+      ],
+      "name": "KITAこだわりポイント",
+      "settings": {
+        "heading": "KITA OUTDOORのこだわり",
+        "subtext": "北の大地で培った職人の技と、アウトドアへの深い愛情から生まれた道具たち。",
+        "color_scheme": "background-1"
+      }
     }
   },
   "order": [
-    "kita_hero_VpBpRb"
+    "kita_hero_VpBpRb",
+    "kita_features_yDLawT"
   ]
 }
