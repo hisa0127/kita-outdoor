@@ -82,6 +82,15 @@
         "padding_bottom": 12
       }
     },
+    "kita-product-info": {
+      "type": "kita-product-info",
+      "settings": {
+        "brand_comment": "北の山岳地帯で実際にフィールドテストを重ね、過酷な環境でも機能することを確認した本物の道具です。職人の手によって丁寧に仕上げられた一着を、あなたの冒険に。",
+        "spec_material": "リサイクルナイロン100%",
+        "spec_weight": "約350g",
+        "spec_season": "春・夏・秋"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -166,6 +175,7 @@
   "order": [
     "kita_product_info_bFBkTF",
     "main",
+    "kita-product-info",
     "related-products"
   ]
 }
