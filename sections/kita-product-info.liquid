@@ -1,30 +1,19 @@
-<!--
-DEBUG INFO:
-- Product Handle: {{ product.handle }}
-- brand_comment raw: {{ product.metafields.custom.brand_comment }}
-- brand_comment value: {{ product.metafields.custom.brand_comment.value }}
-- brand_comment type: {{ product.metafields.custom.brand_comment.type }}
-- custom metafields list:
-{%- for metafield in product.metafields.custom -%}
-  * {{ metafield[0] }}: {{ metafield[1].value | escape }} (Type: {{ metafield[1].type }})
-{%- endfor -%}
--->
-{%- assign brand_comment = product.metafields.custom.brand_comment.value -%}
+{%- assign brand_comment = product.metafields.custom.custom_brand_comment.value -%}
 {%- unless brand_comment and brand_comment != blank -%}
   {%- assign brand_comment = section.settings.brand_comment -%}
 {%- endunless -%}
 
-{%- assign spec_material = product.metafields.custom.spec_material.value -%}
+{%- assign spec_material = product.metafields.custom.custom_spec_material.value -%}
 {%- unless spec_material and spec_material != blank -%}
   {%- assign spec_material = section.settings.spec_material -%}
 {%- endunless -%}
 
-{%- assign spec_weight = product.metafields.custom.spec_weight.value -%}
+{%- assign spec_weight = product.metafields.custom.custom_spec_weight.value -%}
 {%- unless spec_weight and spec_weight != blank -%}
   {%- assign spec_weight = section.settings.spec_weight -%}
 {%- endunless -%}
 
-{%- assign spec_season = product.metafields.custom.spec_season.value -%}
+{%- assign spec_season = product.metafields.custom.custom_spec_season.value -%}
 {%- unless spec_season and spec_season != blank -%}
   {%- assign spec_season = section.settings.spec_season -%}
 {%- endunless -%}
