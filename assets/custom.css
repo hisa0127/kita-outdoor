@@ -92,6 +92,51 @@ sticky-header[data-sticky-type] .header {
 }
 
 /* ============================================
+   ページトップへ戻るボタン
+   ============================================ */
+
+.kita-back-to-top {
+  position: fixed;
+  bottom: 3.2rem;
+  right: 3.2rem;
+  z-index: 200;
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 50%;
+  background-color: var(--kita-green);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(var(--kita-green-rgb), 0.35);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+  pointer-events: none;
+}
+
+.kita-back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.kita-back-to-top:hover {
+  background-color: #143326;
+}
+
+@media screen and (max-width: 749px) {
+  .kita-back-to-top {
+    bottom: 2rem;
+    right: 2rem;
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+}
+
+/* ============================================
    スクロールフェードインアニメーション
    custom.js の Intersection Observer と連動
    ============================================ */
