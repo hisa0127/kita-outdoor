@@ -1,5 +1,5 @@
 <section
-  class="kita-hero kita-hero--align-{{ section.settings.text_align }}"
+  class="kita-hero kita-hero--align-{{ section.settings.text_align }}{% if section.settings.text_shadow %} kita-hero--text-shadow{% endif %}"
   style="
     {% if section.settings.bg_image != blank %}
       background-image: url('{{ section.settings.bg_image | image_url: width: 1920 }}');
@@ -29,6 +29,7 @@
       <a
         href="{{ section.settings.button_url | default: '#' }}"
         class="kita-hero__btn button"
+        style="background-color: {{ section.settings.btn_color }}; border-color: {{ section.settings.btn_color }}; color: {{ section.settings.btn_text_color }};"
       >
         {{ section.settings.button_label }}
       </a>
@@ -119,8 +120,14 @@
 }
 
 .kita-hero__btn:hover {
-  background-color: #143326;
-  border-color: #143326;
+  opacity: 0.85;
+}
+
+/* テキストシャドウ（背景画像との視認性向上） */
+.kita-hero--text-shadow .kita-hero__eyebrow,
+.kita-hero--text-shadow .kita-hero__heading,
+.kita-hero--text-shadow .kita-hero__subtext {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 749px) {
@@ -213,13 +220,31 @@
       "label": "CTAボタンのリンク先"
     },
     {
-      "type": "select",
+      "type": "header",
+      "content": "テキスト・ボタンの色"
+    },
+    {
+      "type": "color",
       "id": "text_color",
       "label": "テキストカラー",
-      "options": [
-        { "value": "#ffffff", "label": "ホワイト" },
-        { "value": "#1A1A1A", "label": "ダーク" }
-      ],
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_shadow",
+      "label": "テキストシャドウを表示（背景画像との視認性向上）",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "ボタンの背景色",
+      "default": "#1B4332"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "ボタンのテキスト色",
       "default": "#ffffff"
     }
   ],
