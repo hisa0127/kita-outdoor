@@ -65,6 +65,20 @@
         "color_scheme": "background-1"
       }
     },
+    "kita_product_grid_MYMCcy": {
+      "type": "kita-product-grid",
+      "name": "KITA商品グリッド",
+      "settings": {
+        "heading": "KITA OUTDOORの道具たち",
+        "subtext": "北の山岳地帯でテストされた、本物のアウトドアギア。",
+        "collection": "kita-outdoor製品",
+        "products_count": 2,
+        "columns": "3",
+        "show_vendor": false,
+        "show_view_all": true,
+        "view_all_label": "すべての商品を見る"
+      }
+    },
     "kita_cta_banner_PRQnpr": {
       "type": "kita-cta-banner",
       "name": "KITAバナーCTA",
@@ -79,26 +93,12 @@
         "btn_color": "#f8f4ef",
         "btn_text_color": "#1b4332"
       }
-    },
-    "kita_product_grid_MYMCcy": {
-      "type": "kita-product-grid",
-      "name": "KITA商品グリッド",
-      "settings": {
-        "heading": "KITA OUTDOORの道具たち",
-        "subtext": "北の山岳地帯でテストされた、本物のアウトドアギア。",
-        "collection": "kita-outdoor製品",
-        "products_count": 3,
-        "columns": "3",
-        "show_vendor": false,
-        "show_view_all": true,
-        "view_all_label": "すべての商品を見る"
-      }
     }
   },
   "order": [
     "kita_hero_VpBpRb",
     "kita_features_yDLawT",
-    "kita_cta_banner_PRQnpr",
-    "kita_product_grid_MYMCcy"
+    "kita_product_grid_MYMCcy",
+    "kita_cta_banner_PRQnpr"
   ]
 }
