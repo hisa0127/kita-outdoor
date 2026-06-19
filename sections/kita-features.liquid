@@ -1,4 +1,4 @@
-<section class="kita-features color-{{ section.settings.color_scheme }} gradient">
+<section class="kita-features">
   <div class="page-width">
     {%- if section.settings.heading != blank -%}
       <h2 class="kita-features__heading animate-fade-up">{{ section.settings.heading }}</h2>
@@ -134,17 +134,6 @@
       "label": "サブテキスト",
       "default": "北の大地で培った職人の技と、アウトドアへの深い愛情から生まれた道具たち。"
     },
-    {
-      "type": "select",
-      "id": "color_scheme",
-      "label": "カラースキーム",
-      "options": [
-        { "value": "background-1", "label": "Background 1" },
-        { "value": "background-2", "label": "Background 2" },
-        { "value": "inverse", "label": "Inverse" }
-      ],
-      "default": "background-1"
-    }
   ],
   "blocks": [
     {

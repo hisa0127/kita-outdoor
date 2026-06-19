@@ -184,3 +184,7 @@ body {
   background-color: var(--kita-bg);
   color: var(--kita-text);
 }
+
+html {
+  scroll-behavior: smooth;
+}
