@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -77,9 +86,9 @@
       "type": "kita-product-info",
       "settings": {
         "brand_comment": "北の山岳地帯で実際にフィールドテストを重ね、過酷な環境でも機能することを確認した本物の道具です。職人の手によって丁寧に仕上げられた一着を、あなたの冒険に。",
-        "spec_material": "リサイクルナイロン100%",
-        "spec_weight": "約350g",
-        "spec_season": "春・夏・秋"
+        "spec_material": "{{ product.metafields.custom.custom_spec_material.value }}",
+        "spec_weight": "{{ product.metafields.custom.custom_spec_weight.value }}",
+        "spec_season": "{{ product.metafields.custom.custom_spec_season.value }}"
       }
     },
     "related-products": {
