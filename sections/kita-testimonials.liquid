@@ -1,0 +1,276 @@
+<section class="kita-testimonials">
+  <div class="page-width">
+
+    <div class="kita-testimonials__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="kita-testimonials__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <p class="kita-testimonials__subtext">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="kita-testimonials__grid" role="list">
+        {%- for block in section.blocks -%}
+          <li class="kita-testimonials__card" {{ block.shopify_attributes }}>
+
+            {%- if block.settings.rating != blank -%}
+              <div class="kita-testimonials__stars" aria-label="{{ block.settings.rating }}点">
+                {%- assign rating_int = block.settings.rating | times: 1 -%}
+                {%- for i in (1..5) -%}
+                  <span class="kita-testimonials__star{% if i <= rating_int %} kita-testimonials__star--filled{% endif %}">★</span>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.quote != blank -%}
+              <blockquote class="kita-testimonials__quote">
+                <span class="kita-testimonials__quote-mark">"</span>
+                {{ block.settings.quote }}
+              </blockquote>
+            {%- endif -%}
+
+            <footer class="kita-testimonials__footer">
+              {%- if block.settings.customer_name != blank -%}
+                <p class="kita-testimonials__name">{{ block.settings.customer_name }}</p>
+              {%- endif -%}
+              {%- if block.settings.product_name != blank -%}
+                <p class="kita-testimonials__product">{{ block.settings.product_name }}を購入</p>
+              {%- endif -%}
+            </footer>
+
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% stylesheet %}
+.kita-testimonials {
+  padding: 8rem 0;
+  background-color: rgba(var(--kita-green-rgb), 0.03);
+}
+
+.kita-testimonials__header {
+  text-align: center;
+  margin-bottom: 5.6rem;
+}
+
+.kita-testimonials__heading {
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--kita-green);
+  margin: 0 0 1.6rem;
+}
+
+.kita-testimonials__subtext {
+  font-size: 1.6rem;
+  color: var(--kita-text);
+  opacity: 0.7;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* グリッド */
+.kita-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* カード */
+.kita-testimonials__card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 3.2rem;
+  box-shadow: 0 2px 16px rgba(var(--kita-green-rgb), 0.07);
+  border: 1px solid rgba(var(--kita-green-rgb), 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.kita-testimonials__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(var(--kita-green-rgb), 0.12);
+}
+
+/* 星評価 */
+.kita-testimonials__stars {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.kita-testimonials__star {
+  font-size: 2rem;
+  color: rgba(var(--kita-green-rgb), 0.2);
+  line-height: 1;
+}
+
+.kita-testimonials__star--filled {
+  color: var(--kita-green);
+}
+
+/* 引用文 */
+.kita-testimonials__quote {
+  font-size: 1.6rem;
+  line-height: 1.9;
+  color: var(--kita-text);
+  margin: 0;
+  flex: 1;
+  position: relative;
+}
+
+.kita-testimonials__quote-mark {
+  font-size: 5.6rem;
+  line-height: 0.6;
+  color: var(--kita-green);
+  opacity: 0.2;
+  font-family: Georgia, serif;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+/* フッター */
+.kita-testimonials__footer {
+  border-top: 1px solid rgba(var(--kita-green-rgb), 0.1);
+  padding-top: 1.6rem;
+}
+
+.kita-testimonials__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--kita-green);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+}
+
+.kita-testimonials__product {
+  font-size: 1.3rem;
+  color: var(--kita-gray);
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+@media screen and (max-width: 989px) {
+  .kita-testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .kita-testimonials {
+    padding: 6rem 0;
+  }
+  .kita-testimonials__grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+  .kita-testimonials__card {
+    padding: 2.4rem;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "KITAお客様の声",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "見出し",
+      "default": "お客様の声"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "サブテキスト",
+      "default": "実際にKITA OUTDOORの道具を使ったお客様からのレビューです。"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "レビュー",
+      "settings": [
+        {
+          "type": "select",
+          "id": "rating",
+          "label": "評価（星の数）",
+          "options": [
+            { "value": "1", "label": "★☆☆☆☆" },
+            { "value": "2", "label": "★★☆☆☆" },
+            { "value": "3", "label": "★★★☆☆" },
+            { "value": "4", "label": "★★★★☆" },
+            { "value": "5", "label": "★★★★★" }
+          ],
+          "default": "5"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "レビュー本文",
+          "default": "北海道の山で使いましたが、突然の大雨でも全く濡れませんでした。軽くて動きやすく、これ以上のジャケットは必要ないと思えるほどです。"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "お客様のお名前",
+          "default": "T.K. さん（北海道）"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "購入商品名",
+          "default": "KITAマウンテンレインジャケット"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KITAお客様の声",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": "5",
+            "quote": "北海道の山で使いましたが、突然の大雨でも全く濡れませんでした。軽くて動きやすく、これ以上のジャケットは必要ないと思えるほどです。",
+            "customer_name": "T.K. さん（北海道）",
+            "product_name": "KITAマウンテンレインジャケット"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": "5",
+            "quote": "コルクのグリップが手に馴染んで疲れにくい。収納時のコンパクトさも◎。長距離縦走でも頼りになる一本です。リピート購入しました。",
+            "customer_name": "M.S. さん（長野）",
+            "product_name": "KITAアルパイントレッキングポール"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": "4",
+            "quote": "35Lという容量が絶妙で、日帰りから1泊登山まで本当に使いやすい。背負い心地が良くて長時間歩いても肩が痛くなりません。",
+            "customer_name": "Y.A. さん（東京）",
+            "product_name": "KITAアルパインバックパック 35L"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
