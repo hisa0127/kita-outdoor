@@ -1,8 +1,8 @@
 {%- liquid
-  assign brand_comment = product.metafields.custom.brand_comment | default: section.settings.brand_comment
-  assign spec_material  = product.metafields.custom.spec_material  | default: section.settings.spec_material
-  assign spec_weight    = product.metafields.custom.spec_weight    | default: section.settings.spec_weight
-  assign spec_season    = product.metafields.custom.spec_season    | default: section.settings.spec_season
+  assign brand_comment = product.metafields.custom.brand_comment.value | default: section.settings.brand_comment
+  assign spec_material  = product.metafields.custom.spec_material.value  | default: section.settings.spec_material
+  assign spec_weight    = product.metafields.custom.spec_weight.value    | default: section.settings.spec_weight
+  assign spec_season    = product.metafields.custom.spec_season.value    | default: section.settings.spec_season
 -%}
 
 <section class="kita-product-info">
