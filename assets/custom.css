@@ -51,9 +51,13 @@ a {
   color: var(--kita-green);
 }
 
-/* ヘッダー */
-.header {
+/* ヘッダー：.headerはpage-width制約があるため親のsticky-headerに背景を当てる */
+sticky-header {
   background-color: var(--kita-bg);
+}
+
+.header {
+  background-color: transparent;
 }
 
 /* フルブリードセクション（kita-hero・cta-bannerは端まで広げる） */
@@ -82,7 +86,7 @@ sticky-header[data-sticky-type] .header {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.shopify-section-header-sticky .header {
+.shopify-section-header-sticky sticky-header {
   background-color: rgba(248, 244, 239, 0.97);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
