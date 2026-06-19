@@ -9,12 +9,14 @@
  */
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
+    "kita-banner": {
+      "type": "kita-collection-banner",
       "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
+        "bg_color": "#1B4332",
+        "min_height": 35,
+        "overlay_opacity": 40,
+        "text_color": "#ffffff",
+        "show_description": true
       }
     },
     "product-grid": {
@@ -39,7 +41,7 @@
     }
   },
   "order": [
-    "banner",
+    "kita-banner",
     "product-grid"
   ]
 }
