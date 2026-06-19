@@ -23,7 +23,10 @@
         "subtext": "過酷な環境で生まれたギアは、あなたの冒険を支える。\nKITA OUTDOORが届ける、本物の道具。",
         "button_label": "コレクションを見る",
         "button_url": "shopify://collections/all",
-        "text_color": "#ffffff"
+        "text_color": "#FFFFFF",
+        "text_shadow": true,
+        "btn_color": "#1b4332",
+        "btn_text_color": "#ffffff"
       }
     },
     "kita_features_yDLawT": {
