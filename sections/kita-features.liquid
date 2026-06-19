@@ -1,16 +1,16 @@
 <section class="kita-features color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width">
     {%- if section.settings.heading != blank -%}
-      <h2 class="kita-features__heading">{{ section.settings.heading }}</h2>
+      <h2 class="kita-features__heading animate-fade-up">{{ section.settings.heading }}</h2>
     {%- endif -%}
     {%- if section.settings.subtext != blank -%}
-      <p class="kita-features__subtext">{{ section.settings.subtext }}</p>
+      <p class="kita-features__subtext animate-fade-up">{{ section.settings.subtext }}</p>
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
       <ul class="kita-features__grid" role="list">
         {%- for block in section.blocks -%}
-          <li class="kita-features__item" {{ block.shopify_attributes }}>
+          <li class="kita-features__item animate-fade-up" style="transition-delay: {{ forloop.index0 | times: 120 }}ms" {{ block.shopify_attributes }}>
             {%- if block.settings.icon != blank -%}
               <div class="kita-features__icon">{{ block.settings.icon }}</div>
             {%- endif -%}

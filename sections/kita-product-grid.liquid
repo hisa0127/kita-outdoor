@@ -3,7 +3,7 @@
 <section class="kita-product-grid">
   <div class="page-width">
 
-    <div class="kita-product-grid__header">
+    <div class="kita-product-grid__header animate-fade-up">
       {%- if section.settings.heading != blank -%}
         <h2 class="kita-product-grid__heading">{{ section.settings.heading }}</h2>
       {%- endif -%}
@@ -18,7 +18,7 @@
         role="list"
       >
         {%- for product in grid_collection.products limit: section.settings.products_count -%}
-          <li class="kita-product-grid__item">
+          <li class="kita-product-grid__item animate-fade-up" style="transition-delay: {{ forloop.index0 | times: 100 }}ms">
             <a href="{{ product.url }}" class="kita-product-grid__card">
 
               <div class="kita-product-grid__image-wrap">
