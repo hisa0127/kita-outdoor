@@ -85,7 +85,7 @@
     "kita-product-info": {
       "type": "kita-product-info",
       "settings": {
-        "brand_comment": "北の山岳地帯で実際にフィールドテストを重ね、過酷な環境でも機能することを確認した本物の道具です。職人の手によって丁寧に仕上げられた一着を、あなたの冒険に。",
+        "brand_comment": "",
         "spec_material": "{{ product.metafields.custom.custom_spec_material.value }}",
         "spec_weight": "{{ product.metafields.custom.custom_spec_weight.value }}",
         "spec_season": "{{ product.metafields.custom.custom_spec_season.value }}"
