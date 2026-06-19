@@ -13,9 +13,10 @@
       "type": "kita-hero",
       "name": "KITAヒーロー",
       "settings": {
+        "bg_image": "shopify://shop_images/S__39845893.jpg",
         "bg_color": "#1b4332",
         "min_height": 85,
-        "overlay_opacity": 35,
+        "overlay_opacity": 20,
         "text_align": "left",
         "eyebrow": "KITA OUTDOOR",
         "heading": "山と森で、\n自分を更新する",
@@ -79,21 +80,6 @@
         "view_all_label": "すべての商品を見る"
       }
     },
-    "kita_cta_banner_PRQnpr": {
-      "type": "kita-cta-banner",
-      "name": "KITAバナーCTA",
-      "settings": {
-        "eyebrow": "COLLECTION",
-        "heading": "あなたの次の冒険を、ここから始めよう。",
-        "subtext": "KITA OUTDOORが厳選した道具で、自然と向き合う時間をもっと豊かに。",
-        "button_label": "コレクションをすべて見る",
-        "button_url": "shopify://collections/all",
-        "bg_color": "#1b4332",
-        "text_color": "#f8f4ef",
-        "btn_color": "#f8f4ef",
-        "btn_text_color": "#1b4332"
-      }
-    },
     "kita_testimonials_dmCntU": {
       "type": "kita-testimonials",
       "blocks": {
@@ -134,6 +120,21 @@
       "settings": {
         "heading": "お客様の声",
         "subtext": "実際にKITA OUTDOORの道具を使ったお客様からのレビューです。"
+      }
+    },
+    "kita_cta_banner_PRQnpr": {
+      "type": "kita-cta-banner",
+      "name": "KITAバナーCTA",
+      "settings": {
+        "eyebrow": "COLLECTION",
+        "heading": "あなたの次の冒険を、ここから始めよう。",
+        "subtext": "KITA OUTDOORが厳選した道具で、自然と向き合う時間をもっと豊かに。",
+        "button_label": "コレクションをすべて見る",
+        "button_url": "shopify://collections/all",
+        "bg_color": "#1b4332",
+        "text_color": "#f8f4ef",
+        "btn_color": "#f8f4ef",
+        "btn_text_color": "#1b4332"
       }
     }
   },
