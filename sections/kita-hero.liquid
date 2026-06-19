@@ -7,7 +7,6 @@
       background-color: {{ section.settings.bg_color }};
     {% endif %}
     min-height: {{ section.settings.min_height }}vh;
-    color: {{ section.settings.text_color }};
   "
 >
   <div
@@ -17,13 +16,13 @@
 
   <div class="kita-hero__inner page-width animate-fade-up">
     {%- if section.settings.eyebrow != blank -%}
-      <p class="kita-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+      <p class="kita-hero__eyebrow" style="color: {{ section.settings.eyebrow_color }};">{{ section.settings.eyebrow }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h1 class="kita-hero__heading">{{ section.settings.heading | newline_to_br | strip_newlines }}</h1>
+      <h1 class="kita-hero__heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading | newline_to_br | strip_newlines }}</h1>
     {%- endif -%}
     {%- if section.settings.subtext != blank -%}
-      <p class="kita-hero__subtext">{{ section.settings.subtext }}</p>
+      <p class="kita-hero__subtext" style="color: {{ section.settings.subtext_color }};">{{ section.settings.subtext }}</p>
     {%- endif -%}
     {%- if section.settings.button_label != blank -%}
       <a
@@ -221,12 +220,24 @@
     },
     {
       "type": "header",
-      "content": "テキスト・ボタンの色"
+      "content": "テキストの色"
     },
     {
       "type": "color",
-      "id": "text_color",
-      "label": "テキストカラー",
+      "id": "eyebrow_color",
+      "label": "サブタイトルの色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "キャッチコピーの色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "サブテキストの色",
       "default": "#ffffff"
     },
     {
@@ -234,6 +245,10 @@
       "id": "text_shadow",
       "label": "テキストシャドウを表示（背景画像との視認性向上）",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "ボタンの色"
     },
     {
       "type": "color",
