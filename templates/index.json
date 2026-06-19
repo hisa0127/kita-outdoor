@@ -93,12 +93,55 @@
         "btn_color": "#f8f4ef",
         "btn_text_color": "#1b4332"
       }
+    },
+    "kita_testimonials_dmCntU": {
+      "type": "kita-testimonials",
+      "blocks": {
+        "testimonial_gUcAMR": {
+          "type": "testimonial",
+          "settings": {
+            "rating": "5",
+            "quote": "北海道の山で使いましたが、突然の大雨でも全く濡れませんでした。軽くて動きやすく、これ以上のジャケットは必要ないと思えるほどです。",
+            "customer_name": "T.K. さん（北海道）",
+            "product_name": "KITAマウンテンレインジャケット"
+          }
+        },
+        "testimonial_H3gLfn": {
+          "type": "testimonial",
+          "settings": {
+            "rating": "5",
+            "quote": "コルクのグリップが手に馴染んで疲れにくい。収納時のコンパクトさも◎。長距離縦走でも頼りになる一本です。リピート購入しました。",
+            "customer_name": "M.S. さん（長野）",
+            "product_name": "KITAアルパイントレッキングポール"
+          }
+        },
+        "testimonial_LMBMb3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": "4",
+            "quote": "35Lという容量が絶妙で、日帰りから1泊登山まで本当に使いやすい。背負い心地が良くて長時間歩いても肩が痛くなりません。",
+            "customer_name": "Y.A. さん（東京）",
+            "product_name": "KITAアルパインバックパック 35L"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_gUcAMR",
+        "testimonial_H3gLfn",
+        "testimonial_LMBMb3"
+      ],
+      "name": "KITAお客様の声",
+      "settings": {
+        "heading": "お客様の声",
+        "subtext": "実際にKITA OUTDOORの道具を使ったお客様からのレビューです。"
+      }
     }
   },
   "order": [
     "kita_hero_VpBpRb",
     "kita_features_yDLawT",
     "kita_product_grid_MYMCcy",
+    "kita_testimonials_dmCntU",
     "kita_cta_banner_PRQnpr"
   ]
 }
