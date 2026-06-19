@@ -22,7 +22,7 @@
       <h1 class="kita-hero__heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading | newline_to_br | strip_newlines }}</h1>
     {%- endif -%}
     {%- if section.settings.subtext != blank -%}
-      <p class="kita-hero__subtext" style="color: {{ section.settings.subtext_color }};">{{ section.settings.subtext }}</p>
+      <p class="kita-hero__subtext" style="color: {{ section.settings.subtext_color }};">{{ section.settings.subtext | newline_to_br | strip_newlines }}</p>
     {%- endif -%}
     {%- if section.settings.button_label != blank -%}
       <a
