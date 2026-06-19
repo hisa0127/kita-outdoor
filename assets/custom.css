@@ -92,6 +92,30 @@ sticky-header[data-sticky-type] .header {
 }
 
 /* ============================================
+   スクロールフェードインアニメーション
+   custom.js の Intersection Observer と連動
+   ============================================ */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================
    タイポグラフィ（STEP 5で追加）
    ============================================ */
 
