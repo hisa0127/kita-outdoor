@@ -21,7 +21,7 @@
         "heading": "山と森で、\n自分を更新する",
         "subtext": "過酷な環境で生まれたギアは、あなたの冒険を支える。\nKITA OUTDOORが届ける、本物の道具。",
         "button_label": "コレクションを見る",
-        "button_url": "",
+        "button_url": "shopify://collections/all",
         "text_color": "#ffffff"
       }
     },
@@ -70,14 +70,14 @@
       "name": "KITAバナーCTA",
       "settings": {
         "eyebrow": "COLLECTION",
-        "heading": "あなたの次の冒険を、\nここから始めよう。",
+        "heading": "あなたの次の冒険を、ここから始めよう。",
         "subtext": "KITA OUTDOORが厳選した道具で、自然と向き合う時間をもっと豊かに。",
         "button_label": "コレクションをすべて見る",
-        "button_url": "",
-        "bg_color": "#1B4332",
-        "text_color": "#F8F4EF",
-        "btn_color": "#F8F4EF",
-        "btn_text_color": "#1B4332"
+        "button_url": "shopify://collections/all",
+        "bg_color": "#1b4332",
+        "text_color": "#f8f4ef",
+        "btn_color": "#f8f4ef",
+        "btn_text_color": "#1b4332"
       }
     }
   },
