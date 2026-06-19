@@ -1,3 +1,14 @@
+<!--
+DEBUG INFO:
+- Product Handle: {{ product.handle }}
+- brand_comment raw: {{ product.metafields.custom.brand_comment }}
+- brand_comment value: {{ product.metafields.custom.brand_comment.value }}
+- brand_comment type: {{ product.metafields.custom.brand_comment.type }}
+- custom metafields list:
+{%- for metafield in product.metafields.custom -%}
+  * {{ metafield[0] }}: {{ metafield[1].value | escape }} (Type: {{ metafield[1].type }})
+{%- endfor -%}
+-->
 {%- assign brand_comment = product.metafields.custom.brand_comment.value -%}
 {%- unless brand_comment and brand_comment != blank -%}
   {%- assign brand_comment = section.settings.brand_comment -%}
@@ -134,7 +145,7 @@
       "content": "各項目は商品メタフィールド（custom.brand_comment など）が優先されます。メタフィールド未設定の場合は以下のデフォルト値が表示されます。"
     },
     {
-      "type": "textarea",
+      "type": "text",
       "id": "brand_comment",
       "label": "こだわりコメント（デフォルト）",
       "default": "北の山岳地帯で実際にフィールドテストを重ね、過酷な環境でも機能することを確認した本物の道具です。"
