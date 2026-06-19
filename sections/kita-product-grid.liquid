@@ -1,0 +1,342 @@
+{%- assign grid_collection = collections[section.settings.collection] -%}
+
+<section class="kita-product-grid">
+  <div class="page-width">
+
+    <div class="kita-product-grid__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="kita-product-grid__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <p class="kita-product-grid__subtext">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if grid_collection != blank and grid_collection.products_count > 0 -%}
+      <ul
+        class="kita-product-grid__list kita-product-grid__list--{{ section.settings.columns }}-col"
+        role="list"
+      >
+        {%- for product in grid_collection.products limit: section.settings.products_count -%}
+          <li class="kita-product-grid__item">
+            <a href="{{ product.url }}" class="kita-product-grid__card">
+
+              <div class="kita-product-grid__image-wrap">
+                {%- if product.featured_image != blank -%}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 600 }}"
+                    alt="{{ product.featured_image.alt | escape }}"
+                    width="600"
+                    height="{{ 600 | divided_by: product.featured_image.aspect_ratio | round }}"
+                    loading="lazy"
+                    class="kita-product-grid__image"
+                  >
+                {%- else -%}
+                  <div class="kita-product-grid__image-placeholder">
+                    {{ 'product-1' | placeholder_svg_tag: 'kita-product-grid__placeholder-svg' }}
+                  </div>
+                {%- endif -%}
+
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="kita-product-grid__badge">SALE</span>
+                {%- endif -%}
+              </div>
+
+              <div class="kita-product-grid__info">
+                {%- if section.settings.show_vendor and product.vendor != blank -%}
+                  <p class="kita-product-grid__vendor">{{ product.vendor }}</p>
+                {%- endif -%}
+                <h3 class="kita-product-grid__title">{{ product.title }}</h3>
+                <div class="kita-product-grid__price">
+                  {%- if product.compare_at_price > product.price -%}
+                    <s class="kita-product-grid__price--compare">{{ product.compare_at_price | money }}</s>
+                  {%- endif -%}
+                  <span class="kita-product-grid__price--current">{{ product.price | money }}</span>
+                </div>
+              </div>
+
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if section.settings.show_view_all and grid_collection.products_count > section.settings.products_count -%}
+        <div class="kita-product-grid__footer">
+          <a href="{{ grid_collection.url }}" class="kita-product-grid__view-all button">
+            {{ section.settings.view_all_label | default: 'すべて見る' }}
+          </a>
+        </div>
+      {%- endif -%}
+
+    {%- else -%}
+      <p class="kita-product-grid__empty">コレクションを選択してください。</p>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% stylesheet %}
+.kita-product-grid {
+  padding: 8rem 0;
+}
+
+.kita-product-grid__header {
+  text-align: center;
+  margin-bottom: 5.6rem;
+}
+
+.kita-product-grid__heading {
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--kita-green);
+  margin: 0 0 1.6rem;
+}
+
+.kita-product-grid__subtext {
+  font-size: 1.6rem;
+  color: var(--kita-text);
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* グリッドレイアウト */
+.kita-product-grid__list {
+  display: grid;
+  gap: 3.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kita-product-grid__list--2-col { grid-template-columns: repeat(2, 1fr); }
+.kita-product-grid__list--3-col { grid-template-columns: repeat(3, 1fr); }
+.kita-product-grid__list--4-col { grid-template-columns: repeat(4, 1fr); }
+
+/* 商品カード */
+.kita-product-grid__card {
+  display: block;
+  text-decoration: none;
+  color: var(--kita-text);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.kita-product-grid__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(var(--kita-green-rgb), 0.12);
+}
+
+/* 画像 */
+.kita-product-grid__image-wrap {
+  position: relative;
+  background-color: rgba(var(--kita-green-rgb), 0.03);
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.kita-product-grid__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.kita-product-grid__card:hover .kita-product-grid__image {
+  transform: scale(1.04);
+}
+
+.kita-product-grid__image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--kita-green-rgb), 0.06);
+}
+
+.kita-product-grid__placeholder-svg {
+  width: 60%;
+  height: 60%;
+  opacity: 0.3;
+}
+
+/* バッジ */
+.kita-product-grid__badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  background-color: var(--kita-green);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+}
+
+/* 商品情報 */
+.kita-product-grid__info {
+  padding: 1.6rem 0.4rem 0;
+}
+
+.kita-product-grid__vendor {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kita-green);
+  opacity: 0.7;
+  margin: 0 0 0.4rem;
+}
+
+.kita-product-grid__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.8rem;
+  line-height: 1.4;
+}
+
+.kita-product-grid__price {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.kita-product-grid__price--current {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--kita-green);
+}
+
+.kita-product-grid__price--compare {
+  font-size: 1.4rem;
+  color: var(--kita-gray);
+  text-decoration: line-through;
+}
+
+/* フッター（すべて見るボタン） */
+.kita-product-grid__footer {
+  text-align: center;
+  margin-top: 5.6rem;
+}
+
+.kita-product-grid__view-all {
+  display: inline-block;
+  padding: 1.6rem 5.6rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: var(--kita-green);
+  color: #ffffff;
+  border: 2px solid var(--kita-green);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.kita-product-grid__view-all:hover {
+  background-color: transparent;
+  color: var(--kita-green);
+}
+
+.kita-product-grid__empty {
+  text-align: center;
+  font-size: 1.6rem;
+  opacity: 0.5;
+  padding: 4rem 0;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 989px) {
+  .kita-product-grid__list--3-col,
+  .kita-product-grid__list--4-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .kita-product-grid {
+    padding: 6rem 0;
+  }
+  .kita-product-grid__list--2-col,
+  .kita-product-grid__list--3-col,
+  .kita-product-grid__list--4-col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "KITA商品グリッド",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "見出し",
+      "default": "KITA OUTDOORの道具たち"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "サブテキスト",
+      "default": "北の山岳地帯でテストされた、本物のアウトドアギア。"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "表示するコレクション"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "label": "表示する商品数",
+      "default": 6
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "列数（PC）",
+      "options": [
+        { "value": "2", "label": "2列" },
+        { "value": "3", "label": "3列" },
+        { "value": "4", "label": "4列" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "ベンダー名を表示する",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "「すべて見る」ボタンを表示する",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "「すべて見る」ボタンのテキスト",
+      "default": "すべての商品を見る"
+    }
+  ],
+  "presets": [
+    {
+      "name": "KITA商品グリッド"
+    }
+  ]
+}
+{% endschema %}
